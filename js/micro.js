@@ -1,25 +1,17 @@
-function buildMicro(blocks) {
-      var h = '';
-        blocks.forEach(function (b) {
-            if (b.type === 'h') h += '<h3>' + esc(b.text) + '</h3>';
-                else if (b.type === 'p') h += '<p>' + esc(b.text) + '</p>';
-                    else if (b.type === 'li') h += '<div class="li">' + esc(b.text) + '</div>';
-                        else if (b.type === 'img') h += '<figure><img src="' + b.src + '" alt=""></figure>';
-                            else if (b.type === 'table') {
-                                  var max = 0;
-                                        b.rows.forEach(function (r) { max = Math.max(max, r.length); });
-                                              h += '<table>';
-                                                    b.rows.forEach(function (r, ri) {
-                                                            var tag = ri === 0 ? 'th' : 'td';
-                                                                    h += '<tr>';
-                                                                            for (var c = 0; c < max; c++) {
-                                                                                      h += '<' + tag + '>' + esc(r[c] || '') + '</' + tag + '>';
-                                                                                              }
-                                                                                                      h += '</tr>';
-                                                                                                            });
-                                                                                                                  h += '</table>';
-                                                                                                                      }
-                                                                                                                        });
-                                                                                                                          return h;
-                                                                                                                          }
+function buildMicro(blocks){
+      var out='<div class="sheet">';
+        (blocks||[]).forEach(function(b){
+            if(b.type==='h')out+='<h3>'+esc(b.text)+'</h3>';
+                else if(b.type==='p')out+='<p>'+esc(b.text)+'</p>';
+                    else if(b.type==='li')out+='<div class="li">'+esc(b.text)+'</div>';
+                        else if(b.type==='table'){
+                              out+='<table><tbody>';
+                                    (b.rows||[]).forEach(function(row,i){out+='<tr>';
+                                            row.forEach(function(cell){out+=(i===0?'<th>':'<td>')+esc(cell)+(i===0?'</th>':'</td>')});
+                                                    out+='</tr>'
+                                                          });out+='</tbody></table>';
+                                                              }else if(b.type==='img')out+='<figure><img src="'+esc(b.src)+'" alt="PDF diagram or image"></figure>';
+                                                                });
+                                                                  return out+'</div>'
+                                                                  }
 }

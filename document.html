@@ -1,48 +1,29 @@
-<!DOCTYPE html>
-<html lang="hi">
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
       <title>Document to Micro</title>
         <link rel="stylesheet" href="document.css">
         </head>
         <body>
-          <header class="top no-print">
-              <a href="index.html">← Back</a>
-                  <h1>Document to Micro</h1>
-                    </header>
-
-                      <section class="panel no-print">
-                          <label class="pick">
-                                <input type="file" id="file" accept="application/pdf,.pdf">
-                                      <span>📄 PDF chuno</span>
-                                          </label>
-                                              <label class="cols">Columns
-                                                    <select id="cols">
-                                                            <option>1</option><option>2</option>
-                                                                    <option selected>3</option><option>4</option>
-                                                                          </select>
-                                                                              </label>
-                                                                                  <div id="status" class="status"></div>
-                                                                                    </section>
-
-                                                                                      <section id="analysis" class="panel no-print" hidden></section>
-
-                                                                                        <div id="actions" class="panel no-print" hidden>
-                                                                                            <button id="dl">⬇ Download PDF</button>
-                                                                                              </div>
-
-                                                                                                <div class="stage"><div id="sheet" class="sheet" hidden></div></div>
-
-                                                                                                  <div id="modal" class="modal no-print" hidden>
-                                                                                                      <div class="box"><p id="modalText"></p><button id="modalOk">OK</button></div>
-                                                                                                        </div>
-
-                                                                                                          <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-                                                                                                            <script src="js/ui.js"></script>
-                                                                                                              <script src="js/extract.js"></script>
-                                                                                                                <script src="js/analyze.js"></script>
-                                                                                                                  <script src="js/micro.js"></script>
-                                                                                                                    <script src="js/main.js"></script>
-                                                                                                                    </body>
-                                                                                                                    </html>
+          <header class="topbar no-print"><a href="index.html">← Back</a><h1>Document to Micro</h1></header>
+            <main class="app">
+                <section class="panel no-print">
+                      <label class="file-button" for="pdfFile">Choose PDF</label><input id="pdfFile" type="file" accept="application/pdf,.pdf" hidden>
+                            <label>Columns <select id="columns"><option>1</option><option>2</option><option selected>3</option><option>4</option></select></label>
+                                  <span id="status" class="status" aria-live="polite"></span>
+                                      </section>
+                                          <section id="analysis" class="analysis no-print" hidden></section>
+                                              <section id="stage" class="stage" hidden></section>
+                                                  <button id="download" class="download no-print" type="button" hidden>Download PDF</button>
+                                                    </main>
+                                                      <div id="msgModal" class="modal" hidden><div class="modal-box" role="dialog" aria-modal="true"><p id="msgText"></p><button id="msgOk" type="button">OK</button></div></div>
+                                                        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+                                                          <script src="js/ui.js"></script>
+                                                            <script src="js/micro.js"></script>
+                                                              <script src="js/analyze.js"></script>
+                                                                <script src="js/extract.js"></script>
+                                                                  <script src="js/doc-main.js"></script>
+                                                                  </body>
+                                                                  </html>
