@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document to Micro</title>
+        <link rel="stylesheet" href="document.css">
+        </head>
+        <body>
+          <header class="top no-print">
+              <a href="index.html">← Back</a>
+                  <h1>Document to Micro</h1>
+                    </header>
+
+                      <section class="panel no-print">
+                          <label class="pick">
+                                <input type="file" id="file" accept="application/pdf,.pdf">
+                                      <span>📄 PDF chuno</span>
+                                          </label>
+                                              <label class="cols">Columns
+                                                    <select id="cols">
+                                                            <option>1</option><option>2</option>
+                                                                    <option selected>3</option><option>4</option>
+                                                                          </select>
+                                                                              </label>
+                                                                                  <div id="status" class="status"></div>
+                                                                                    </section>
+
+                                                                                      <section id="analysis" class="panel no-print" hidden></section>
+
+                                                                                        <div id="actions" class="panel no-print" hidden>
+                                                                                            <button id="dl">⬇ Download PDF</button>
+                                                                                              </div>
+
+                                                                                                <div class="stage"><div id="sheet" class="sheet" hidden></div></div>
+
+                                                                                                  <div id="modal" class="modal no-print" hidden>
+                                                                                                      <div class="box"><p id="modalText"></p><button id="modalOk">OK</button></div>
+                                                                                                        </div>
+
+                                                                                                          <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+                                                                                                            <script src="js/ui.js"></script>
+                                                                                                              <script src="js/extract.js"></script>
+                                                                                                                <script src="js/analyze.js"></script>
+                                                                                                                  <script src="js/micro.js"></script>
+                                                                                                                    <script src="js/main.js"></script>
+                                                                                                                    </body>
+                                                                                                                    </html>
